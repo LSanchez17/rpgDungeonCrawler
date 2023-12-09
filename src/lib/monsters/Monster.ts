@@ -2,8 +2,18 @@
 // This should incorporate an auto generation feature
 // auto generate a set of basic, miniboss, and boss monsters during world and dungeon creation
 // Incorporate some LLM stuff for more variety
+import { MonsterInterface } from "../../types/characterTypes";
 
-export class Monster {
+export class Monster implements MonsterInterface{
+    name: string;
+    health: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    exp: number;
+    gold: number;
+    tile: string;
+
     constructor(name, health, attack, defense, speed, exp, gold) {
         this.name = name;
         this.health = health;
@@ -16,109 +26,85 @@ export class Monster {
 
     /**
      * Increase a monster's speed
-     * 
-     * @param {number} speedAmount number
      */
-    increaseSpeed(speedAmount) {
+    increaseSpeed(speedAmount: number) {
         this.speed += speedAmount;
     }
 
     /**
      * Decrease a monster's speed
-     * 
-     * @param {number} speedAmount number
      */
-    decreaseSpeed(speedAmount) {
+    decreaseSpeed(speedAmount: number) {
         this.speed -= speedAmount;  
     }
 
     /**
      * Increase a monster's attack
-     * 
-     * @param {number} attackAmount number
      */
-    increaseAttack(attackAmount) {
+    increaseAttack(attackAmount: number) {
         this.attack += attackAmount;
     }
 
     /**
      * Decrease a monster's attack
-     * 
-     * @param {number} attackAmount number
      */
-    decreaseAttack(attackAmount) {
+    decreaseAttack(attackAmount: number) {
         this.attack -= attackAmount;
     }
 
     /**
      * Increase a monster's defense
-     * 
-     * @param {number} defenseAmount number
      */
-    increaseDefense(defenseAmount) {
+    increaseDefense(defenseAmount: number) {
         this.defense += defenseAmount;
     }
 
     /**
      * Decrease a monster's defense
-     * 
-     * @param {number} defenseAmount number
      */
-    decreaseDefense(defenseAmount) {
+    decreaseDefense(defenseAmount: number) {
         this.defense -= defenseAmount;
     }
 
     /**
      * Increase a monster's health
-     * 
-     * @param {number} healthAmount number
      */
-    increaseHealth(healthAmount) {
+    increaseHealth(healthAmount: number) {
         this.health += healthAmount;
     }
 
     /**
      * Decrease a monster's health
-     * 
-     * @param {number} healthAmount number
      */
-    decreaseHealth(healthAmount) {
+    decreaseHealth(healthAmount: number) {
         this.health -= healthAmount;
     }
 
     /**
      * Increase a monster's exp
-     * 
-     * @param {number} expAmount number
      */
-    increaseExp(expAmount) {
+    increaseExp(expAmount: number) {
         this.exp += expAmount;
     }
 
     /**
      * Decrease a monster's exp
-     * 
-     * @param {number} expAmount number
      */
-    decreaseExp(expAmount) {
+    decreaseExp(expAmount: number) {
         this.exp -= expAmount;
     }
 
     /**
      * Increase a monster's gold
-     * 
-     * @param {number} goldAmount number
      */
-    increaseGold(goldAmount) {
+    increaseGold(goldAmount: number) {
         this.gold += goldAmount;
     }
 
     /**
      * Decrease a monster's gold
-     * 
-     * @param {number} goldAmount number
      */
-    decreaseGold(goldAmount) {
+    decreaseGold(goldAmount: number) {
         this.gold -= goldAmount;
     }
 }

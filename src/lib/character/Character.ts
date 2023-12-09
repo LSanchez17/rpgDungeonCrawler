@@ -1,6 +1,21 @@
-// create basic character class
-export class Character {
-    constructor(name) {
+import { CharacterInterface } from '../../types/characterTypes';
+import { RoomInterface } from '../../types/roomTypes';
+
+export class Character implements CharacterInterface {
+    name: string;
+    exp: number;
+    gold: number;
+    level: number;
+    isCursed: boolean;
+    isBlessed: boolean;
+    currentRoom: RoomInterface;
+    tile: string;
+    health: number;
+    attack: number;
+    defense: number;
+    speed: number;
+
+    constructor(name: string) {
         this.name = name;
         this.exp = 0;
         this.gold = 0;
@@ -11,9 +26,6 @@ export class Character {
         this.tile = 'Ü';
     }
 
-    /**
-     * The curse and blessing methods are to track these properties for now
-     */
     setCurse() {
         this.isCursed = true;
     }
@@ -54,53 +66,43 @@ export class Character {
 
     /**
      * Increase the character's experience points
-     * 
-     * @param {number} exp number
      */
-    increaseExp(exp) {
+    increaseExp(exp: number) {
         this.exp += exp;
     }
 
     /**
      * Increase the character's gold
-     * 
-     * @param {number} gold number
      */
-    increaseGold(gold) {
+    increaseGold(gold: number) {
         this.gold += gold;
     }
 
     /**
      * damage the character's health
      * TODO: improve this, account for defense
-     * 
-     * @param {number} damage number
      */
-    damageCharacterHealth(damage) {
+    damageCharacterHealth(damage: number) {
         this.health -= damage;
     }
 
     /**
      * get the current player's location within the dungeon
      */
-    getCurrentRoom() {
+    getCurrentRoom(): RoomInterface {
         return this.currentRoom;
     }
 
     /**
      * set the current player's location within the dungeon
-     * 
-     * @param {Room} room class instance
      */
-    setCurrentRoom(room) {
+    setCurrentRoom(room: RoomInterface) {
         this.currentRoom = room;
     }
 
     
     /**
      * Return the character Tile
-     * 
-     * @returns {string} character tile - Ü
      */
     getTile() {
         return this.tile;
