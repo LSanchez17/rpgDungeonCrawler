@@ -1,7 +1,5 @@
 // Maybe we should update the rooms themselves to be an array as well, for now they are one dimmensional points
-
-
-class Room {
+export class Room {
     constructor(row, col, type, tile) {
         this.row = row;
         this.col = col;
@@ -145,5 +143,3 @@ class Room {
         this.items = this.items.filter(i => i !== item);
     }
 }
-
-export default Room;

@@ -1,5 +1,5 @@
 // create a class for weapons
-class Weapon {
+export class Weapon {
     constructor(name, price, attack, durability) {
         this.name = name;
         this.price = price;
@@ -58,5 +58,3 @@ class Weapon {
         this.price = Math.round(this.price * 1.5);
     }   
 }
-
-export default Weapon;

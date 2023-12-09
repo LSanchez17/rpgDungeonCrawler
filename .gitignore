@@ -1,2 +1,23 @@
-.vs_code
-node_modules
+# Dependency directories
+node_modules/
+
+# TypeScript build directory
+built/
+
+# Compiled JavaScript files
+*.js
+*.js.map
+
+# TypeScript configuration
+tsconfig.json
+
+# Visual Studio Code settings
+.vscode/
+
+# Editor-specific files
+*.swp
+*.swo
+*.swn
+
+# Windows
+Thumbs.db

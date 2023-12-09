@@ -1,6 +1,9 @@
 // create a class to manage the base monster 
+// This should incorporate an auto generation feature
+// auto generate a set of basic, miniboss, and boss monsters during world and dungeon creation
+// Incorporate some LLM stuff for more variety
 
-class Monster {
+export class Monster {
     constructor(name, health, attack, defense, speed, exp, gold) {
         this.name = name;
         this.health = health;
@@ -119,5 +122,3 @@ class Monster {
         this.gold -= goldAmount;
     }
 }
-
-export default Monster;

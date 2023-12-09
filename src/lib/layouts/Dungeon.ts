@@ -1,7 +1,7 @@
-const { Utilities } = require('../utilities/utilities');
-const { Room } = require('./rooms/Room');
+import { Utilities } from '../utilities/utilities';
+import { Room } from './rooms/Room';
 
-class Dungeon {
+export class Dungeon {
     constructor() {
         this.rooms = [];
         this.numRows = 0;
@@ -146,5 +146,3 @@ class Dungeon {
     }
 
 }
-
-export default Dungeon;

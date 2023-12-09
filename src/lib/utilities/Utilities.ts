@@ -1,4 +1,4 @@
-class Utilities {
+export class Utilities {
     static getTimestamp() {
         return new Date().toISOString();
     }
@@ -59,5 +59,3 @@ class Utilities {
         return roomTypes[Math.floor(Math.random() * roomTypes.length)];
     }
 }
-
-export default Utilities;

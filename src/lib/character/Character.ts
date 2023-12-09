@@ -1,6 +1,5 @@
 // create basic character class
-
-class Character {
+export class Character {
     constructor(name) {
         this.name = name;
         this.exp = 0;
@@ -109,5 +108,3 @@ class Character {
 
 
 }
-
-export default Character;

@@ -1,6 +1,8 @@
 const { Utilities } = require('./utilities/Utilities');
 
-class Item {
+// Incorporate similar mechanisms for items, in terms of generation at runtime
+
+export class Item {
     constructor(name, price) {
         this.name = name;
         this.price = price;
@@ -18,5 +20,3 @@ class Item {
     }
 
 }
-
-export default Item;

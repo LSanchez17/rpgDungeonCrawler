@@ -1,5 +1,5 @@
 // create a class for managing inventory of various items
-class Inventory {
+export class Inventory {
     constructor() {
         this.items = [];
     }
@@ -33,5 +33,3 @@ class Inventory {
         return this.items;
     }
 }
-
-export default Inventory;

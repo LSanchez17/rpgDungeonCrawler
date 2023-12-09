@@ -1,5 +1,5 @@
 // class for a world model
-class World {
+export class World {
     constructor(name, biomes, difficulty) {
         this.name = name;
         this.biomes = biomes;
@@ -74,5 +74,3 @@ class World {
         return this.difficulty;
     }
 }
-
-export default World;
