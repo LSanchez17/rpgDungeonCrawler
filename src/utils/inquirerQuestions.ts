@@ -1,4 +1,5 @@
-import { prompt, select } from '@inquirer/prompts';
+import { input } from '@inquirer/prompts';
+import select from '@inquirer/select';
 
 export const mainMenu = async () => {
     const answer = await select({
@@ -16,8 +17,8 @@ export const mainMenu = async () => {
             }
         ]
     });
-    
-    return answer.action === 'start';
+
+    return answer === 'start';
 }
 
 /**
@@ -27,7 +28,7 @@ export const mainMenu = async () => {
  * @returns {worldName: string, difficulty: string}
  */
 export const worldCreation = async () => {
-    const worldName = await prompt({
+    const worldName = await input({
         message: 'What is your world\'s name?',
     });
 
@@ -67,7 +68,7 @@ export const worldCreation = async () => {
  * @returns {characterName: string, characterClass: string}
  */
 export const characterCreation = async () => {
-    const characterName = await prompt({
+    const characterName = await input({
         message: 'What is your character\'s name?',
     });
 

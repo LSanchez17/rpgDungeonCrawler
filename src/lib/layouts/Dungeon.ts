@@ -1,7 +1,13 @@
 import { Utilities } from '../utilities/utilities';
 import { Room } from './rooms/Room';
+import { DungeonInterface } from '../../types/roomTypes/DungeonRoom';
+import { Character } from '../character/Character';
 
-export class Dungeon {
+export class Dungeon implements DungeonInterface {
+    rooms: Room[];
+    numRows: number;
+    numCols: number;
+    
     constructor() {
         this.rooms = [];
         this.numRows = 0;
@@ -11,17 +17,13 @@ export class Dungeon {
     /**
      * Each room is a class instance of the Room class
      * We add this to the dungeon's rooms array
-     * 
-     * @param {Room} room class instance to add
      */
-    addRoom(room) {
+    addRoom(room: Room) {
         this.rooms.push(room);
     }
 
     /**
      * This returns the current rooms in the dungeon
-     * 
-     * @returns {Array} rooms in the dungeon
      */
     getRooms() {
         return this.rooms;
@@ -29,25 +31,19 @@ export class Dungeon {
 
     /**
      * This returns the specific room within the dungeon
-     * 
-     * @param {number} row of the room
-     * @param {number} col of the room
-     * @returns {Room} room class instance
      */
-    getRoom(row, col) {
+    getRoom(row: number, col: number) {
         return this.rooms[row][col];
     }
 
     /**
      * Enter the dungeon, set the players current room to the starting point of the dungeon
      * Denoted by the Symbol Ü
-     * 
-     * @param {Character} character class instance
      */
-    enterDungeon(character) {
+    enterDungeon(character: Character) {
         // set the players current starting room, should be random within the bounds of the dungeon array
         const dungeonRow = Math.floor(Math.random() * this.rooms.length);
-        const dungeonColumn = Math.floor(Math.random() * this.rooms[startingLayer].length);
+        const dungeonColumn = Math.floor(Math.random() * this.rooms.length);
         const startingRoomLocation = this.getRoom(dungeonRow, dungeonColumn);
         
         character.setCurrentRoom(startingRoomLocation);
@@ -56,11 +52,8 @@ export class Dungeon {
 
     /**
      * This sets the player's tile within the dungeon
-     * 
-     * @param {Array} coordinates of the room within the dungeon
-     * @param {string} tile symbol
      */
-    setPlayerTile(room, tile) {
+    setPlayerTile(room: Room, tile: string) {
         const row = room.getRow();
         const col = room.getCol();
 
@@ -69,11 +62,8 @@ export class Dungeon {
 
     /**
      * This moves the player within the dungeon to a new location
-     * 
-     * @param {string} direction of movement (UP, DOWN, LEFT, RIGHT)
-     * @param {Character} Character class instance
      */
-    movePlayer(direction, character) {
+    movePlayer(direction: string, character: Character) {
         const currentRoom = character.getCurrentRoom();
         const currentRow = currentRoom.getRow();
         const currentCol = currentRoom.getCol();
@@ -107,12 +97,12 @@ export class Dungeon {
 
         // Leave an 'x' in the previous location if the player was already in a location within the array
         if (currentRow !== newRow || currentCol !== newCol) {
-            currentRoom.setTile(currentRow, currentCol, 'x');
+            currentRoom.setTile('x');
         }
 
         const newRoom = this.getRoom(newRow, newCol);
-        player.setCurrentRoom(newRoom);
-        newRoom.setTile(player.getSymbol());
+        character.setCurrentRoom(newRoom);
+        newRoom.setTile(character.getTile());
     }
 
     /**
@@ -120,10 +110,8 @@ export class Dungeon {
      * It will pick a random number of rows and columns based on the difficulty set for the world
      * Then for each entry in the array, it will create a new room class instance (sometimes, not always)
      * These room instances can then be assigned to be a special type of room (see rooms folder)
-     * 
-     * @param {string} difficulty of the world
      */
-    generateDungeon(difficulty) {
+    generateDungeon(difficulty: string) {
         const [numberofRows, numberOfColumns] = Utilities.getBoundsByDifficulty(difficulty);
         this.numRows = numberofRows;
         this.numCols = numberOfColumns;

@@ -1,6 +1,12 @@
-// create a class for weapons
-export class Weapon {
-    constructor(name, price, attack, durability) {
+import { WeaponInterface } from "../../types/weaponTypes";
+
+export class Weapon implements WeaponInterface{
+    name: string;
+    price: number;
+    attack: number;
+    durability: number;
+
+    constructor(name: string, price: number, attack: number, durability: number) {
         this.name = name;
         this.price = price;
         this.attack = attack;
@@ -9,21 +15,20 @@ export class Weapon {
 
     /**
      * Creates a discount for characters to buy weapons for less gold
-     * 
-     * @param {number} characterDiscount number
      */
-    setDiscount(characterDiscount) {
-        this.price = Math.round(this.price * characterDiscount);
+    setDiscount(characterDiscount: number | undefined) {
+        if (characterDiscount) {
+            this.price = Math.round(this.price * characterDiscount);
+        }
     }
 
     /**
-     * Creates a boost for characters to attack with more power
-     * Can come from 
-     * 
-     * @param {number} characterAttackBoost number
+     * Creates a boost for characters to attack with more power Can come from 
      */
-    setAttackBoost(characterAttackBoost) {
-        this.attack = Math.round(this.attack * characterAttackBoost);
+    setAttackBoost(characterAttackBoost: number | undefined) {
+        if (characterAttackBoost) {
+            this.attack = Math.round(this.attack * characterAttackBoost);
+        }
     }
 
     /**
@@ -31,23 +36,21 @@ export class Weapon {
      */
     damageWeapon() {
         this.durability -= 1;
+        // if weaponDurability is 0, weapon is broken
+        // TODO: Implement weapon breakage
     }
 
     /**
      * Allows characters to repair weapons
-     * 
-     * @param {number} repairPercentage number
      */
-    repairWeapon(repairPercentage) {
+    repairWeapon(repairPercentage: number) {
         this.durability = Math.round(this.durability * repairPercentage);
     }
 
     /**
      * Some monsters can decrease attack power of weapons
-     * 
-     * @param {number} characterAttackDecrease number
      */
-    setAttackDecrease(characterAttackDecrease) {
+    setAttackDecrease(characterAttackDecrease: number) {
         this.attack = Math.round(this.attack * characterAttackDecrease);
     }
 

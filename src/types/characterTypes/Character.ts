@@ -1,4 +1,4 @@
-import { RoomInterface } from "../roomTypes";
+import { BaseRoomInterface } from "../roomTypes";
 
 export interface CharacterInterface {
     name: string;
@@ -7,7 +7,7 @@ export interface CharacterInterface {
     level: number;
     isCursed: boolean;
     isBlessed: boolean;
-    currentRoom: RoomInterface;
+    currentRoom: BaseRoomInterface;
     tile: string;
     health: number;
     attack: number;
@@ -21,7 +21,7 @@ export interface CharacterInterface {
     levelUpCharacter(): void;
     increaseExp(exp: number): void;
     increaseGold(gold: number): void;
-    getCurrentRoom(): RoomInterface;
-    setCurrentRoom(room: RoomInterface): void;
+    getCurrentRoom(): BaseRoomInterface;
+    setCurrentRoom(room: BaseRoomInterface): void;
     getTile(): string;
 }

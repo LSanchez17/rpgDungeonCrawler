@@ -1,5 +1,5 @@
 import { CharacterInterface } from '../../types/characterTypes';
-import { RoomInterface } from '../../types/roomTypes';
+import { BaseRoomInterface } from '../../types/roomTypes';
 
 export class Character implements CharacterInterface {
     name: string;
@@ -8,7 +8,7 @@ export class Character implements CharacterInterface {
     level: number;
     isCursed: boolean;
     isBlessed: boolean;
-    currentRoom: RoomInterface;
+    currentRoom: BaseRoomInterface;
     tile: string;
     health: number;
     attack: number;
@@ -89,14 +89,14 @@ export class Character implements CharacterInterface {
     /**
      * get the current player's location within the dungeon
      */
-    getCurrentRoom(): RoomInterface {
+    getCurrentRoom(): BaseRoomInterface {
         return this.currentRoom;
     }
 
     /**
      * set the current player's location within the dungeon
      */
-    setCurrentRoom(room: RoomInterface) {
+    setCurrentRoom(room: BaseRoomInterface) {
         this.currentRoom = room;
     }
 

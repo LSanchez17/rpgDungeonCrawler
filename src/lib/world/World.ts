@@ -1,6 +1,13 @@
-// class for a world model
-export class World {
-    constructor(name, biomes, difficulty) {
+import { WorldInterface, BiomeInterface } from "../../types/worldTypes";
+import { DifficultyEnum } from "../../types/utilityTypes";
+
+export class World implements WorldInterface {
+    name: string;
+    biomes: BiomeInterface[];
+    difficulty: typeof DifficultyEnum;
+    entropy: number;
+
+    constructor(name: string, biomes: BiomeInterface[], difficulty: DifficultyEnum) {
         this.name = name;
         this.biomes = biomes;
         this.difficulty = difficulty;
@@ -38,18 +45,16 @@ export class World {
 
     /**
      * Determine a base level of entropy based on initial difficulty
-     * 
-     * @returns number
      */
     getGameEntropyBasedOnDifficulty() {
         switch(this.difficulty) {
-            case 'Easy':
+            case DifficultyEnum.Easy:
                 return 20;
-            case 'Medium':
+            case DifficultyEnum.Medium:
                 return 30;
-            case 'Hard':
+            case DifficultyEnum.Hard:
                 return 40;
-            case 'Legendary':
+            case DifficultyEnum.Legendary:
                 return 50;
             default:
                 return 20;
@@ -58,8 +63,6 @@ export class World {
 
     /**
      * Get the name of the world
-     * 
-     * @returns {string} name of the world
      */
     getName() {
         return this.name;
@@ -67,8 +70,6 @@ export class World {
 
     /**
      * Get the difficulty of the world
-     * 
-     * @returns {string} difficulty of the world
      */
     getDifficulty() {
         return this.difficulty;
