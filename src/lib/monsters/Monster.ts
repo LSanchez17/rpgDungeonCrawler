@@ -1,7 +1,3 @@
-// create a class to manage the base monster 
-// This should incorporate an auto generation feature
-// auto generate a set of basic, miniboss, and boss monsters during world and dungeon creation
-// Incorporate some LLM stuff for more variety
 import { MonsterInterface } from "../../types/characterTypes";
 
 export class Monster implements MonsterInterface{

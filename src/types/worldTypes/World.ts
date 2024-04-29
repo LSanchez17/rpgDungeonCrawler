@@ -4,7 +4,7 @@ import { DifficultyEnum } from "../utilityTypes";
 export interface WorldInterface {
     name: string;
     biomes: BiomeInterface[];
-    difficulty: typeof DifficultyEnum;
+    difficulty: DifficultyEnum;
     entropy: number;
     setBaseEntropy(): number;
     setIncreasedEntropy(): void;

@@ -32,7 +32,7 @@ export class Weapon implements WeaponInterface{
     }
 
     /**
-     * Weapon attacks decrease druability
+     * Weapon attacks decrease durability
      */
     damageWeapon() {
         this.durability -= 1;

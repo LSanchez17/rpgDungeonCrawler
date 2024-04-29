@@ -1,8 +1,14 @@
-const { Utilities } = require('./utilities/Utilities');
-
+import { ItemInterface } from "../../types";
+import Utilities from "../utilities/Utilities";
 // Incorporate similar mechanisms for items, in terms of generation at runtime
 
-export class Item {
+export class Item implements ItemInterface{
+    name: string;
+    price: number;
+    type: string;
+    tile: string;
+    hiddenAttribute: { statCategory: string, value: number };
+
     constructor(name, price) {
         this.name = name;
         this.price = price;
@@ -19,4 +25,8 @@ export class Item {
         });
     }
 
+    /** Sets the base attributes of this item based on it's type */
+    setBaseAttributes(): void {
+        // TODO: Implement. Take intoa account difficulty
+    }
 }

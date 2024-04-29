@@ -1,5 +1,9 @@
-// create a class for managing inventory of various items
-export class Inventory {
+import { ItemInterface } from "../../types";
+import { InventoryInterface } from "../../types/inventory/Iventory";
+
+export class Inventory implements InventoryInterface{
+    items: ItemInterface[];
+
     constructor() {
         this.items = [];
     }
@@ -10,7 +14,7 @@ export class Inventory {
      * 
      * @param {Item} item class instance to add
      */
-    addItem(item) {
+    addItem(item: ItemInterface) {
         this.items.push(item);
     }
 
@@ -20,7 +24,7 @@ export class Inventory {
      * 
      * @param {Item} item class instance to remove
      */
-    removeItem(item) {
+    removeItem(item: ItemInterface) {
         this.items = this.items.filter(i => i.name !== item.name);
     }
 
@@ -29,7 +33,7 @@ export class Inventory {
      * 
      * @returns {Array} items in inventory
      */
-    getItems() {
+    getItems(): Array<ItemInterface> {
         return this.items;
     }
 }

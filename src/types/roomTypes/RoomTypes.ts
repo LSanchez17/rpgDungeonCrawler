@@ -4,11 +4,11 @@ export interface RoomTypes {
 }
 
 export enum RoomTypesEnum {
-    'RestRoom',
-    'BossRoom',
-    'ChestRoom',
-    'EmptyRoom',
-    'MonsterRoom',
-    'ShopRoom',
-    'TrapRoom',
+   RESTROOM = 'RestRoom',
+   BOSSROOM = 'BossRoom',
+   CHESTROOM = 'ChestRoom',
+   EMPTYROOM = 'EmptyRoom',
+   MONSTERROOM = 'MonsterRoom',
+   SHOPROOM = 'ShopRoom',
+   TRAPROOM = 'TrapRoom',
 }

@@ -1,24 +1,24 @@
 import { UtilitiesInterface } from "../../types/utilityTypes/UtilityClassTypes";
 
-export class Utilities implements UtilitiesInterface {
-    static getTimestamp(): string {
+class Utilities implements UtilitiesInterface {
+    getTimestamp(): string {
         return new Date().toISOString();
     }
 
-    static getTimestampWithMessage(message: string): string {
+    getTimestampWithMessage(message: string): string {
         return `${this.getTimestamp()} - ${message}`;
     }
 
-    static getRandomStatCategory(): string {
+    getRandomStatCategory(): string {
         const categories = ['health', 'attack', 'defense', 'speed'];
         return categories[Math.floor(Math.random() * categories.length)];
     }
 
-    static getRandomInt(max: number): number {
+    getRandomInt(max: number): number {
         return Math.floor(Math.random() * Math.floor(max));
     }    
 
-    static getBoundsByDifficulty(difficulty: string): number[] {
+    getBoundsByDifficulty(difficulty: string): number[] {
         let numberOfRows: number;
         let numberOfColumns: number;
 
@@ -48,7 +48,7 @@ export class Utilities implements UtilitiesInterface {
         }
     }
 
-    static getRandomRoomType(): string {
+    getRandomRoomType(): string {
         const roomTypes = [
             'FreeSpace', 'FreeSpace', 'Magic', 
             'FreeSpace', 'FreeSpace', 'Poison', 
@@ -61,3 +61,5 @@ export class Utilities implements UtilitiesInterface {
         return roomTypes[Math.floor(Math.random() * roomTypes.length)];
     }
 }
+
+export default new Utilities();

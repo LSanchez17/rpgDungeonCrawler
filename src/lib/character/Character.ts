@@ -42,9 +42,6 @@ export class Character implements CharacterInterface {
         this.isBlessed = false;
     }
 
-    /**
-     * Set the basic attributes of every character if they don't pick a class to start off with
-     */
     setBaseAttributes() {
         this.health = 100;
         this.attack = 1;
@@ -52,10 +49,6 @@ export class Character implements CharacterInterface {
         this.speed = 1;
     }
 
-    /**
-     * level up a character and increase their stats
-     * TODO: Improve this leveling up algorithm
-     */
     levelUpCharacter() {
         this.level += 1;
         this.health += Math.floor(this.level * (this.health / 20));
@@ -64,46 +57,26 @@ export class Character implements CharacterInterface {
         this.speed += Math.floor(this.level * (this.speed / 10));
     }
 
-    /**
-     * Increase the character's experience points
-     */
     increaseExp(exp: number) {
         this.exp += exp;
     }
 
-    /**
-     * Increase the character's gold
-     */
     increaseGold(gold: number) {
         this.gold += gold;
     }
 
-    /**
-     * damage the character's health
-     * TODO: improve this, account for defense
-     */
     damageCharacterHealth(damage: number) {
         this.health -= damage;
     }
 
-    /**
-     * get the current player's location within the dungeon
-     */
     getCurrentRoom(): BaseRoomInterface {
         return this.currentRoom;
     }
 
-    /**
-     * set the current player's location within the dungeon
-     */
     setCurrentRoom(room: BaseRoomInterface) {
         this.currentRoom = room;
     }
 
-    
-    /**
-     * Return the character Tile
-     */
     getTile() {
         return this.tile;
     }

@@ -1,4 +1,4 @@
-import { Utilities } from '../utilities/utilities';
+import Utilities from "../utilities/Utilities";
 import { Room } from './rooms/Room';
 import { DungeonInterface } from '../../types/roomTypes/DungeonRoom';
 import { Character } from '../character/Character';
@@ -118,7 +118,7 @@ export class Dungeon implements DungeonInterface {
 
         for (let row = 0; row < numberofRows; row++) {
             this.rooms.push([]);
-            const shouldSpecializeThisRoom = Utilities.getRandomChancePercentage() > 50;
+            const shouldSpecializeThisRoom = Utilities.getRandomInt(100) > 50;
             let roomType = null;
 
             if (shouldSpecializeThisRoom) {

@@ -4,7 +4,7 @@ import { DifficultyEnum } from "../../types/utilityTypes";
 export class World implements WorldInterface {
     name: string;
     biomes: BiomeInterface[];
-    difficulty: typeof DifficultyEnum;
+    difficulty: DifficultyEnum;
     entropy: number;
 
     constructor(name: string, biomes: BiomeInterface[], difficulty: DifficultyEnum) {

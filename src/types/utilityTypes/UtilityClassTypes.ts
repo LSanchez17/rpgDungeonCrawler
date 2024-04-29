@@ -1,5 +1,3 @@
-import { Utilities } from "../../lib/utilities/utilities";
-
 export interface UtilitiesInterface {
     getTimestamp(): string;
     getTimestampWithMessage(message: string): string;
