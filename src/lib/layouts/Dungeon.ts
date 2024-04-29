@@ -1,4 +1,4 @@
-import Utilities from "../utilities/Utilities";
+import { UtilitiesClass } from "../utilities/Utilities";
 import { Room } from './rooms/Room';
 import { DungeonInterface } from '../../types/roomTypes/DungeonRoom';
 import { Character } from '../character/Character';
@@ -14,32 +14,18 @@ export class Dungeon implements DungeonInterface {
         this.numCols = 0;
     }
 
-    /**
-     * Each room is a class instance of the Room class
-     * We add this to the dungeon's rooms array
-     */
     addRoom(room: Room) {
         this.rooms.push(room);
     }
 
-    /**
-     * This returns the current rooms in the dungeon
-     */
     getRooms() {
         return this.rooms;
     }
 
-    /**
-     * This returns the specific room within the dungeon
-     */
     getRoom(row: number, col: number) {
         return this.rooms[row][col];
     }
 
-    /**
-     * Enter the dungeon, set the players current room to the starting point of the dungeon
-     * Denoted by the Symbol Ü
-     */
     enterDungeon(character: Character) {
         // set the players current starting room, should be random within the bounds of the dungeon array
         const dungeonRow = Math.floor(Math.random() * this.rooms.length);
@@ -50,9 +36,6 @@ export class Dungeon implements DungeonInterface {
         this.setPlayerTile(startingRoomLocation.getLocation(), character.getTile());
     }
 
-    /**
-     * This sets the player's tile within the dungeon
-     */
     setPlayerTile(room: Room, tile: string) {
         const row = room.getRow();
         const col = room.getCol();
@@ -60,9 +43,6 @@ export class Dungeon implements DungeonInterface {
         this.rooms[row][col].setTile(row, col, tile);
     }
 
-    /**
-     * This moves the player within the dungeon to a new location
-     */
     movePlayer(direction: string, character: Character) {
         const currentRoom = character.getCurrentRoom();
         const currentRow = currentRoom.getRow();
@@ -105,32 +85,20 @@ export class Dungeon implements DungeonInterface {
         newRoom.setTile(character.getTile());
     }
 
-    /**
-     * This generates the dungeon layout
-     * It will pick a random number of rows and columns based on the difficulty set for the world
-     * Then for each entry in the array, it will create a new room class instance (sometimes, not always)
-     * These room instances can then be assigned to be a special type of room (see rooms folder)
-     */
     generateDungeon(difficulty: string) {
-        const [numberofRows, numberOfColumns] = Utilities.getBoundsByDifficulty(difficulty);
-        this.numRows = numberofRows;
-        this.numCols = numberOfColumns;
+        // TODO: Turn into multidomensional array if single dimmension array set up works fine
+        [this.numRows, this.numCols] = UtilitiesClass.getBoundsByDifficulty(difficulty);
 
-        for (let row = 0; row < numberofRows; row++) {
-            this.rooms.push([]);
-            const shouldSpecializeThisRoom = Utilities.getRandomInt(100) > 50;
+        for (let row = 0; row < this.numCols; row++) {
+            const shouldSpecializeThisRoom = UtilitiesClass.getRandomInt(100) > 50;
             let roomType = null;
 
             if (shouldSpecializeThisRoom) {
-                roomType = Utilities.getRandomRoomType();
+                roomType = UtilitiesClass.getRandomRoomType();
             }
             
-            for (let col = 0; col < numberOfColumns; col++) {
-                const room = new Room(row, col, roomType);
-
-                this.rooms[row].push(room);
-            }
+            const room = new Room(0, row, roomType);
+            this.rooms.push(room);
         }
     }
-
 }

@@ -1,4 +1,4 @@
-import { mainMenu, characterCreation, worldCreation } from './utils/inquirerQuestions';
+import { mainMenu } from './utils/startingQuestions';
 import { entropyEngine } from './utils/entropyEngine';
 
 const gameLoop = async () => {
@@ -7,10 +7,10 @@ const gameLoop = async () => {
     if (menuOptionPicked) {
         console.log('Starting game...');
 
-        const worldProperties = worldCreation();
-        const characterProperties = characterCreation();
+        // const worldProperties = worldCreation();
+        // const characterProperties = characterCreation();
         
-        entropyEngine(worldProperties, characterProperties);
+        // entropyEngine(worldProperties, characterProperties);
     } else {
         console.log('Quitting game...');
         return;

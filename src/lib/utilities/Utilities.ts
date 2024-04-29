@@ -18,7 +18,7 @@ class Utilities implements UtilitiesInterface {
         return Math.floor(Math.random() * Math.floor(max));
     }    
 
-    getBoundsByDifficulty(difficulty: string): number[] {
+    getBoundsByDifficulty(difficulty: string): [number, number] {
         let numberOfRows: number;
         let numberOfColumns: number;
 
@@ -62,4 +62,4 @@ class Utilities implements UtilitiesInterface {
     }
 }
 
-export default new Utilities();
+export const UtilitiesClass = new Utilities();

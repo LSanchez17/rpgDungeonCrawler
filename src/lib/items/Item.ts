@@ -1,5 +1,5 @@
 import { ItemInterface } from "../../types";
-import Utilities from "../utilities/Utilities";
+import { UtilitiesClass } from "../utilities/Utilities";
 // Incorporate similar mechanisms for items, in terms of generation at runtime
 
 export class Item implements ItemInterface{
@@ -20,7 +20,7 @@ export class Item implements ItemInterface{
      */
     generateHiddenAttribute() {
         return ({ 
-            statCategory: Utilities.getRandomStatCategory(), 
+            statCategory: UtilitiesClass.getRandomStatCategory(), 
             value: Math.random() * 100
         });
     }
