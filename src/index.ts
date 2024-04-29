@@ -1,20 +1,32 @@
-import { mainMenu } from './utils/startingQuestions';
+import { mainMenu, enterCharacterName, enterDifficulty, enterWorldName } from './utils/startingQuestions';
 import { entropyEngine } from './utils/entropyEngine';
+import { isValidStartGameOption } from './utils/textEntryUtils';
+import { ValidMainMenuOptions } from './types/chatTypes';
 
 const gameLoop = async () => {
-    const menuOptionPicked = await mainMenu();
+    let mainMenuInput = await mainMenu();
+    let validUserInput = isValidStartGameOption(mainMenuInput);
 
-    if (menuOptionPicked) {
-        console.log('Starting game...');
-
-        // const worldProperties = worldCreation();
-        // const characterProperties = characterCreation();
-        
-        // entropyEngine(worldProperties, characterProperties);
-    } else {
-        console.log('Quitting game...');
-        return;
+    if (!validUserInput) {
+        console.log('Invalid input. Please enter a valid input.');
+        gameLoop();
     }
+
+    if (mainMenuInput === ValidMainMenuOptions.N || mainMenuInput === ValidMainMenuOptions.No) {
+        console.log('Goodbye!');
+        process.exit();
+    }
+
+    const characterName = await enterCharacterName();
+    const difficulty = await enterDifficulty();
+    const createWorldName = await enterWorldName();
+
+    console.log(`\n
+        Your character name is: ${characterName}
+        \n
+        Your difficulty is: ${difficulty}
+        \n
+        Your world name is: ${createWorldName}`)
 }
 
 
