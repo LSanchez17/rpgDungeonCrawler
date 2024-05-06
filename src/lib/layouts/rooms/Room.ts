@@ -42,7 +42,7 @@ export class Room implements BaseRoomInterface {
     }
  
     getLocation() {
-        return [this.row, this.col];
+        return [this.col];
     }
 
     addMonster(monster: MonsterInterface) {

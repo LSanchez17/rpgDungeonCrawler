@@ -1,7 +1,7 @@
 import { UtilitiesClass } from "../utilities/Utilities";
 import { Room } from './rooms/Room';
 import { DungeonInterface } from '../../types/roomTypes/DungeonRoom';
-import { Character } from '../character/Character';
+import { CharacterInterface } from "../../types";
 
 export class Dungeon implements DungeonInterface {
     rooms: Room[];
@@ -23,27 +23,30 @@ export class Dungeon implements DungeonInterface {
     }
 
     getRoom(row: number, col: number) {
-        return this.rooms[row][col];
+        // TODO: Update for multidimensional dungeons
+        return this.rooms[col];
     }
 
-    enterDungeon(character: Character) {
+    enterDungeon(character: CharacterInterface) {
         // set the players current starting room, should be random within the bounds of the dungeon array
-        const dungeonRow = Math.floor(Math.random() * this.rooms.length);
-        const dungeonColumn = Math.floor(Math.random() * this.rooms.length);
-        const startingRoomLocation = this.getRoom(dungeonRow, dungeonColumn);
-        
+        // TODO: update this for multidimensional dungeons
+        const dungeonRow = 0;
+        const dungeonColumn = Math.floor(Math.random() * this.numCols);
+        const startingRoomLocation = this.getRoom(0, dungeonColumn);
+
         character.setCurrentRoom(startingRoomLocation);
-        this.setPlayerTile(startingRoomLocation.getLocation(), character.getTile());
+        this.setPlayerTile(startingRoomLocation, character.getTile());
     }
 
     setPlayerTile(room: Room, tile: string) {
         const row = room.getRow();
         const col = room.getCol();
 
-        this.rooms[row][col].setTile(row, col, tile);
+        // TODO: Update for multidimensional dungeons
+        this.rooms[col].setTile(tile);
     }
 
-    movePlayer(direction: string, character: Character) {
+    movePlayer(direction: string, character: CharacterInterface) {
         const currentRoom = character.getCurrentRoom();
         const currentRow = currentRoom.getRow();
         const currentCol = currentRoom.getCol();
@@ -89,7 +92,7 @@ export class Dungeon implements DungeonInterface {
         // TODO: Turn into multidomensional array if single dimmension array set up works fine
         [this.numRows, this.numCols] = UtilitiesClass.getBoundsByDifficulty(difficulty);
 
-        for (let row = 0; row < this.numCols; row++) {
+        for (let i = 0; i < this.numCols; i++) {
             const shouldSpecializeThisRoom = UtilitiesClass.getRandomInt(100) > 50;
             let roomType = null;
 
@@ -97,7 +100,7 @@ export class Dungeon implements DungeonInterface {
                 roomType = UtilitiesClass.getRandomRoomType();
             }
             
-            const room = new Room(0, row, roomType);
+            const room = new Room(0, i, roomType);
             this.rooms.push(room);
         }
     }

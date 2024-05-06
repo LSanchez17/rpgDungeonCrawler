@@ -15,7 +15,7 @@ export interface DungeonInterface extends Partial<BaseRoomInterface> {
     /** Returns a specific room within the dungeon */
     getRoom(row: number, col: number): BaseRoomInterface;
     /** Set the player's current room to the starting point of the dungeon */
-    enterDungeon(character: any): void;
+    enterDungeon(character: CharacterInterface): void;
     /** Sets the player's tile within the dungeon */
     setPlayerTile(room: BaseRoomInterface, tile: string): void;
     /** Moves the player within the dungeon to a new location */

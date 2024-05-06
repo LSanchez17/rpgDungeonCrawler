@@ -3,5 +3,7 @@ import { dungeonCreation } from "./dungeons";
 
 export const gameLoop = (world: WorldInterface, character: CharacterInterface) => {
     const dungeon = dungeonCreation(world.getDifficulty());
-    console.log(dungeon);
+
+    dungeon.enterDungeon(character);
+    console.log(character.getCurrentRoom().getType());
 }
