@@ -80,6 +80,4 @@ export class Character implements CharacterInterface {
     getTile() {
         return this.tile;
     }
-
-
 }

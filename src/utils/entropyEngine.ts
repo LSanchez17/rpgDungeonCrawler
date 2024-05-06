@@ -1,7 +1,19 @@
+import { World } from "../lib/world/World";
+import { DifficultyEnum } from "../types";
+
+interface EntropyEngineInterface {
+    difficulty: string;
+    worldName: string;
+}
+
 /**
- * This file contains the logic to create chaos within a game, world, characters, items, monsters, etc
+ * Contains the logic to create chaos within a game, world, characters, items, monsters, etc
  */
-export const entropyEngine = (worldProperties, characterProperties) => {
+export const entropyEngine = ({ difficulty, worldName}: EntropyEngineInterface) => {
     console.log('Creating world...');
-    console.log(worldProperties, characterProperties)
+
+    const world = new World(worldName, DifficultyEnum[difficulty]);
+    world.setBaseEntropy();
+
+    return world;
 }
