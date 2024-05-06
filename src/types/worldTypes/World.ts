@@ -19,5 +19,5 @@ export interface WorldInterface {
     /** Returns the name of the world */
     getName(): string;
     /** Returns the difficulty of the world */
-    getDifficulty(): string;
+    getDifficulty(): DifficultyEnum;
 }

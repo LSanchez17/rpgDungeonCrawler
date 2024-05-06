@@ -9,6 +9,7 @@ import {
     characterCreation
 } from './utils';
 import { ValidMainMenuOptions } from './types/chatTypes';
+import { gameLoop } from './utils/gameLoop';
 
 const startGame = async () => {
     const startMenu = async () => {
@@ -58,5 +59,7 @@ const startGame = async () => {
 
 
 startGame().then(({world, character}) => {
-    console.log('Game has started! ', world, character)
+    console.log('Game has started! \n')
+
+    gameLoop(world, character);
 })

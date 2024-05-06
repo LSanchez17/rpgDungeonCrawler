@@ -1,0 +1,7 @@
+import { CharacterInterface, WorldInterface } from "../../types";
+import { dungeonCreation } from "./dungeons";
+
+export const gameLoop = (world: WorldInterface, character: CharacterInterface) => {
+    const dungeon = dungeonCreation(world.getDifficulty());
+    console.log(dungeon);
+}

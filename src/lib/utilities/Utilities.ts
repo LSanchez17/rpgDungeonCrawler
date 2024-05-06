@@ -50,11 +50,11 @@ class Utilities implements UtilitiesInterface {
 
     getRandomRoomType(): string {
         const roomTypes = [
-            'FreeSpace', 'FreeSpace', 'Magic', 
+            'Poison', 'FreeSpace', 'Magic', 
             'FreeSpace', 'FreeSpace', 'Poison', 
-            'FreeSpace', 'FreeSpace', 'RestRoom', 
+            'Magic', 'FreeSpace', 'RestRoom', 
             'FreeSpace', 'FreeSpace', 'TrapRoom', 
-            'FreeSpace', 'FreeSpace', 'Treasure', 
+            'TrapRoom', 'RestRoom', 'Treasure', 
             'FreeSpace', 'FreeSpace', 'FreeSpace'
         ];
         
