@@ -1,5 +1,16 @@
 import { mainMenu, enterCharacterName, enterDifficulty, enterWorldName } from "./startingQuestions";
-import { whatWillYouDo } from './basicActionQuestions';
+import { 
+    whatWillYouDo,
+    pressAnyKeyToContinue,
+    foundItemQuestion,
+    whatStatToIncrease, 
+    battleActions
+} from './basicActionQuestions';
+import {
+    whatItemToUse,
+    whatItemToInspect,
+    whatItemToDrop
+} from './inventoryQuestions'
 
 
 export {
@@ -7,5 +18,12 @@ export {
     enterCharacterName,
     enterDifficulty,
     enterWorldName,
-    whatWillYouDo
+    whatWillYouDo,
+    pressAnyKeyToContinue,
+    foundItemQuestion,
+    whatStatToIncrease,
+    battleActions,
+    whatItemToUse,
+    whatItemToInspect,
+    whatItemToDrop
 }

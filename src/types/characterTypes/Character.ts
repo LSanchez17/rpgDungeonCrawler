@@ -25,6 +25,8 @@ export interface CharacterInterface {
     defense: number;
     /** The base speed value of this character */
     speed: number;
+    /** The base wisdom value of this character */
+    wisdom: number;
     /** Sets the character as cursed */
     setCurse(): void;
     /** Removes the curse from the character */

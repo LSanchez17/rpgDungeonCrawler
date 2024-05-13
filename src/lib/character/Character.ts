@@ -14,6 +14,7 @@ export class Character implements CharacterInterface {
     attack: number;
     defense: number;
     speed: number;
+    wisdom: number;
 
     constructor(name: string) {
         this.name = name;
@@ -47,6 +48,7 @@ export class Character implements CharacterInterface {
         this.attack = 1;
         this.defense = 1;
         this.speed = 1;
+        this.wisdom = 1;
     }
 
     levelUpCharacter() {
@@ -55,6 +57,7 @@ export class Character implements CharacterInterface {
         this.attack += Math.floor(this.level * (this.attack / 10));
         this.defense += Math.floor(this.level * (this.defense / 10));
         this.speed += Math.floor(this.level * (this.speed / 10));
+        this.wisdom += Math.floor(this.level * (this.wisdom / 10));
     }
 
     increaseExp(exp: number) {
