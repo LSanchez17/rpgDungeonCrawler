@@ -5,3 +5,4 @@ export * from './utilityTypes';
 export * from './weaponTypes';
 export * from './worldTypes';
 export * from './inventory/Iventory';
+export * from './chatTypes';

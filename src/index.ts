@@ -9,7 +9,7 @@ import {
     characterCreation
 } from './utils';
 import { ValidMainMenuOptions } from './types/chatTypes';
-import { gameLoop } from './utils/gameLoop';
+import { gameLoop } from './gameLoop';
 
 const startGame = async () => {
     const startMenu = async () => {

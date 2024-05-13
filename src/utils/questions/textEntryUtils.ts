@@ -1,5 +1,5 @@
-import { DifficultyEnum } from "../types";
-import { ValidMainMenuOptions } from "../types/chatTypes";
+import { DifficultyEnum } from "../../types";
+import { ValidMainMenuOptions } from "../../types";
 
 export const isValidStartGameOption = (answer: string): boolean => {
     return answer in ValidMainMenuOptions

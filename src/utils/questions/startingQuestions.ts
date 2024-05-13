@@ -1,11 +1,5 @@
-import * as readline from 'readline';
-
+import { interfaceConnection } from './interfaceUtils';
 import { capitalizeFirstLetterOfWord } from './textEntryUtils';
-
-const interfaceConnection = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 
 export const mainMenu = (): Promise<string> => {
     return new Promise((resolve) => {

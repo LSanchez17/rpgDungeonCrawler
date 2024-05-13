@@ -1,7 +1,7 @@
 import { entropyEngine } from "./entropyEngine";
 import { characterCreation } from "./characterCreation";
-import { mainMenu, enterCharacterName, enterDifficulty, enterWorldName } from "./startingQuestions";
-import { isValidStartGameOption, isValidDifficultyOption, capitalizeFirstLetterOfWord } from "./textEntryUtils";
+import { mainMenu, enterCharacterName, enterDifficulty, enterWorldName } from "./questions/startingQuestions";
+import { isValidStartGameOption, isValidDifficultyOption, capitalizeFirstLetterOfWord } from "./questions/textEntryUtils";
 
 export {
     entropyEngine,
@@ -12,5 +12,5 @@ export {
     enterWorldName,
     isValidStartGameOption,
     isValidDifficultyOption,
-    capitalizeFirstLetterOfWord
+    capitalizeFirstLetterOfWord,
 }

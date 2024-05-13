@@ -1,5 +1,5 @@
-import { Dungeon } from "../../../lib/layouts/Dungeon";
-import { DifficultyEnum } from "../../../types";
+import { Dungeon } from "../../lib/layouts/Dungeon";
+import { DifficultyEnum } from "../../types";
 
 export const dungeonCreation = (difficulty: DifficultyEnum): Dungeon => {
     const newDungeon = new Dungeon();
