@@ -14,7 +14,7 @@ export interface CharacterInterface {
     /** Whether this character is blessed */
     isBlessed: boolean;
     /** The current room this character is in */
-    currentRoom: BaseRoomInterface;
+    currentRoom: BaseRoomInterface | null;
     /** The tile that represents this character */
     tile: string;
     /** The health of this character */
@@ -44,9 +44,9 @@ export interface CharacterInterface {
     /** Increase the current gold of the character */
     increaseGold(gold: number): void;
     /** Gets the current room the character is in */
-    getCurrentRoom(): BaseRoomInterface;
+    getCurrentRoom(): BaseRoomInterface | null;
     /** Sets the current room the character is in */
-    setCurrentRoom(room: BaseRoomInterface): void;
+    setCurrentRoom(room: BaseRoomInterface | null): void;
     /** Gets the tile of the character */
     getTile(): string;
 }

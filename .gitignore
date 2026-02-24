@@ -4,12 +4,9 @@ node_modules/
 # TypeScript build directory
 built/
 
-# Compiled JavaScript files
-*.js
-*.js.map
-
-# TypeScript configuration
-tsconfig.json
+# Compiled JavaScript files in build directory
+built/*.js
+built/*.js.map
 
 # Visual Studio Code settings
 .vscode/

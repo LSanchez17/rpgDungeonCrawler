@@ -1,6 +1,5 @@
 import { MonsterInterface } from '../characterTypes/';
 import { ItemInterface } from '../itemTypes/';
-import { RoomTypes } from './RoomTypes';
 
 export interface BaseRoomInterface {
     /** The row this room is in */
@@ -8,9 +7,9 @@ export interface BaseRoomInterface {
     /** The column this room is in */
     col: number;
     /** The type of room this is */
-    type: RoomTypes;
+    type: string | null;
     /** The tile that represents this room, if any */ 
-    tile?: string;
+    tile: string;
     /** The monsters in this room */
     monsters: MonsterInterface[];
     /** The items in this room */
@@ -22,9 +21,9 @@ export interface BaseRoomInterface {
     /** Returns the column this room is in */
     getCol(): number;
     /** Returns the type of room this is */
-    getType(): RoomTypes;
+    getType(): string | null;
     /** Sets the type this room will be */
-    setType(type: RoomTypes): void;
+    setType(type: string | null): void;
     /** Returns the tile that represents this room */
     getTile(): string;
     /** Returns the location of this room */
