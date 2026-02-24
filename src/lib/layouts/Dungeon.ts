@@ -2,9 +2,10 @@ import { UtilitiesClass } from "../utilities/Utilities";
 import { Room } from './rooms/Room';
 import { DungeonInterface } from '../../types/roomTypes/DungeonRoom';
 import { CharacterInterface } from "../../types";
+import { BaseRoomInterface } from "../../types/roomTypes";
 
 export class Dungeon implements DungeonInterface {
-    rooms: Room[];
+    rooms: BaseRoomInterface[];
     numRows: number;
     numCols: number;
     
@@ -14,15 +15,15 @@ export class Dungeon implements DungeonInterface {
         this.numCols = 0;
     }
 
-    addRoom(room: Room) {
+    addRoom(room: BaseRoomInterface) {
         this.rooms.push(room);
     }
 
-    getRooms() {
+    getRooms(): BaseRoomInterface[] {
         return this.rooms;
     }
 
-    getRoom(row: number, col: number) {
+    getRoom(row: number, col: number): BaseRoomInterface {
         // TODO: Update for multidimensional dungeons
         return this.rooms[col];
     }
@@ -38,7 +39,7 @@ export class Dungeon implements DungeonInterface {
         this.setPlayerTile(startingRoomLocation, character.getTile());
     }
 
-    setPlayerTile(room: Room, tile: string) {
+    setPlayerTile(room: BaseRoomInterface, tile: string) {
         const row = room.getRow();
         const col = room.getCol();
 
@@ -48,6 +49,7 @@ export class Dungeon implements DungeonInterface {
 
     movePlayer(direction: string, character: CharacterInterface) {
         const currentRoom = character.getCurrentRoom();
+        if (!currentRoom) return;
         const currentRow = currentRoom.getRow();
         const currentCol = currentRoom.getCol();
         let newRow = currentRow;
@@ -94,7 +96,7 @@ export class Dungeon implements DungeonInterface {
 
         for (let i = 0; i < this.numCols; i++) {
             const shouldSpecializeThisRoom = UtilitiesClass.getRandomInt(100) > 50;
-            let roomType = null;
+            let roomType: string | null = null;
 
             if (shouldSpecializeThisRoom) {
                 roomType = UtilitiesClass.getRandomRoomType();

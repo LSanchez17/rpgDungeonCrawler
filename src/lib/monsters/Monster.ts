@@ -8,9 +8,9 @@ export class Monster implements MonsterInterface{
     speed: number;
     exp: number;
     gold: number;
-    tile: string;
+    tile!: string;
 
-    constructor(name, health, attack, defense, speed, exp, gold) {
+    constructor(name: string, health: number, attack: number, defense: number, speed: number, exp: number, gold: number) {
         this.name = name;
         this.health = health;
         this.attack = attack;

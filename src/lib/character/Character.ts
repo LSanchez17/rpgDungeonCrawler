@@ -8,13 +8,13 @@ export class Character implements CharacterInterface {
     level: number;
     isCursed: boolean;
     isBlessed: boolean;
-    currentRoom: BaseRoomInterface;
+    currentRoom: BaseRoomInterface | null;
     tile: string;
-    health: number;
-    attack: number;
-    defense: number;
-    speed: number;
-    wisdom: number;
+    health!: number;
+    attack!: number;
+    defense!: number;
+    speed!: number;
+    wisdom!: number;
 
     constructor(name: string) {
         this.name = name;
@@ -72,11 +72,11 @@ export class Character implements CharacterInterface {
         this.health -= damage;
     }
 
-    getCurrentRoom(): BaseRoomInterface {
+    getCurrentRoom(): BaseRoomInterface | null {
         return this.currentRoom;
     }
 
-    setCurrentRoom(room: BaseRoomInterface) {
+    setCurrentRoom(room: BaseRoomInterface | null) {
         this.currentRoom = room;
     }
 

@@ -5,11 +5,11 @@ import { UtilitiesClass } from "../utilities/Utilities";
 export class Item implements ItemInterface{
     name: string;
     price: number;
-    type: string;
-    tile: string;
+    type!: string;
+    tile!: string;
     hiddenAttribute: { statCategory: string, value: number };
 
-    constructor(name, price) {
+    constructor(name: string, price: number) {
         this.name = name;
         this.price = price;
         this.hiddenAttribute = this.generateHiddenAttribute();

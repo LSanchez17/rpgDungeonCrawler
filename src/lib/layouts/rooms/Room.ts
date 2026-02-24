@@ -1,21 +1,21 @@
-import { BaseRoomInterface, RoomTypes, RoomTypesEnum } from "../../../types/roomTypes";
+import { BaseRoomInterface } from "../../../types/roomTypes";
 import { MonsterInterface } from "../../../types/characterTypes";
 import { ItemInterface } from "../../../types/itemTypes";
 
 export class Room implements BaseRoomInterface {
     row: number;
     col: number;
-    type: RoomTypes;
+    type: string | null;
     tile: string;
     monsters: MonsterInterface[];
     items: ItemInterface[];
     isCleared: boolean;
 
-    constructor(row: number, col: number, type: RoomTypes, tile?: string) {
+    constructor(row: number, col: number, type: string | null, tile?: string) {
         this.row = row;
         this.col = col;
         this.type = type;
-        this.tile = tile ?? undefined;
+        this.tile = tile ?? '';
         this.monsters = [];
         this.items = [];
         this.isCleared = false;
@@ -29,11 +29,11 @@ export class Room implements BaseRoomInterface {
         return this.col;
     }
 
-    getType(): RoomTypes {
+    getType(): string | null {
         return this.type;
     }
 
-    setType(type: RoomTypes) {
+    setType(type: string | null) {
         this.type = type;
     }
  

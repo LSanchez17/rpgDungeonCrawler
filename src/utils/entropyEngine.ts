@@ -12,7 +12,7 @@ interface EntropyEngineInterface {
 export const entropyEngine = ({ difficulty, worldName}: EntropyEngineInterface) => {
     console.log('Creating world...');
 
-    const world = new World(worldName, DifficultyEnum[difficulty]);
+    const world = new World(worldName, DifficultyEnum[difficulty as keyof typeof DifficultyEnum]);
     world.setBaseEntropy();
 
     return world;

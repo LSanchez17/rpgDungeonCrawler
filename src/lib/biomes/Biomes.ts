@@ -23,7 +23,7 @@ export class Biomes implements BiomeInterface {
         return new Biomes(name, description, baseDifficultyModifier);
     }
 
-    getBiomeByName(name: string): BiomeInterface {
+    getBiomeByName(name: string): BiomeInterface | undefined {
         return this.generateBaseBiomes().find(biome => biome.name === name);
     }
 }
